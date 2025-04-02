@@ -37,6 +37,7 @@ variable "ec2instances" {
       associate_public_ip_address = true
       ec2Pemfile                  = "/Users/nulled/Library/CloudStorage/OneDrive-Personal/Projects/VTI/demo/terraform_practices/practices_day1/privatekey.pem"
       ec2UserConnect              = "ec2-user"
+      userdata                    = "Users/nulled/Library/CloudStorage/OneDrive-Personal/Projects/VTI/demo/terraform_practices/practices_day1/user-data.yaml"
       security_group = {
         ingress = {
           ssh = {

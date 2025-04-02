@@ -49,8 +49,9 @@ resource "aws_instance" "this" {
   key_name                    = aws_key_pair.this.key_name
   security_groups             = [aws_security_group.this.id]
   associate_public_ip_address = var.associate_public_ip_address
-
-  #install package
+  #method 1
+  user_data = file(var.userdata)
+  #method 2
   provisioner "remote-exec" {
     inline = [
       "sudo yum update -y",

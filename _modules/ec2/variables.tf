@@ -28,9 +28,9 @@ variable "associate_public_ip_address" {
 
 }
 
-# variable "enable_nginx_webservices" {
+variable "userdata" {
 
-# }
+}
 variable "ec2UserConnect" {
 
 }

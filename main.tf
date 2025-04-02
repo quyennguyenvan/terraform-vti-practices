@@ -22,5 +22,6 @@ module "ec2instances" {
   associate_public_ip_address = each.value.associate_public_ip_address
   security_group_rule_ingress = each.value.security_group.ingress
   security_group_rule_egress  = each.value.security_group.egress
+  userdata                    = each.value.userdata
   default_tags                = var.default_tags
 }
