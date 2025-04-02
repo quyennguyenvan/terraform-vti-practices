@@ -15,3 +15,24 @@ variable "default_tags" {
 variable "vpc_name" {
   default = "zzzzzz_naaaaa"
 }
+
+variable "ec2instances" {
+  default = {
+    "vm1" = {
+      ec2InstanceName             = "vm1"
+      ec2ami                      = "ami-065a492fef70f84b1"
+      ec2InstanceType             = "t2.micro"
+      trusted_ip_ranges           = ["118.70.36.206/32"]
+      public_key                  = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII1vfZuBuxOazU8NU2wBLD4N+rYdkuAypS5A7u6kRp3G nulled@Null.local"
+      associate_public_ip_address = false
+    },
+    "vm2" = {
+      ec2InstanceName             = "vm2"
+      ec2ami                      = "ami-065a492fef70f84b1"
+      ec2InstanceType             = "t2.small"
+      trusted_ip_ranges           = ["118.70.36.206/32"]
+      public_key                  = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII1vfZuBuxOazU8NU2wBLD4N+rYdkuAypS5A7u6kRp3G nulled@Null.local"
+      associate_public_ip_address = true
+    }
+  }
+}
