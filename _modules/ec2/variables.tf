@@ -27,3 +27,19 @@ variable "trusted_ip_ranges" {
 variable "associate_public_ip_address" {
 
 }
+
+# variable "enable_nginx_webservices" {
+
+# }
+variable "ec2UserConnect" {
+
+}
+variable "ec2Pemfile" {
+
+}
+variable "security_group_rule_ingress" {
+
+}
+variable "security_group_rule_egress" {
+
+}
