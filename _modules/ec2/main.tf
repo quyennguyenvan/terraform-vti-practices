@@ -1,3 +1,7 @@
+locals {
+  current_workspace = terraform.workspace
+}
+
 resource "aws_key_pair" "this" {
   key_name   = "${var.ec2InstanceName}-vmkey"
   public_key = var.public_key
@@ -50,7 +54,7 @@ resource "aws_instance" "this" {
   security_groups             = [aws_security_group.this.id]
   associate_public_ip_address = var.associate_public_ip_address
   #method 1
-  user_data = file(var.userdata)
+  # user_data = file(var.userdata)
   #method 2
   provisioner "remote-exec" {
     inline = [
@@ -70,6 +74,7 @@ resource "aws_instance" "this" {
   }
 
   tags = merge({
-    Name = var.ec2InstanceName
+    Name = var.ec2InstanceName,
+    Env  = local.current_workspace
   }, var.default_tags)
 }

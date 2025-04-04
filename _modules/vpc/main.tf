@@ -1,7 +1,9 @@
 
 
 locals {
-  azs = length(data.aws_availability_zones.available.names)
+  azs               = length(data.aws_availability_zones.available.names)
+  current_workspace = terraform.workspace
+
 }
 
 resource "aws_vpc" "this" {
@@ -40,7 +42,8 @@ resource "aws_internet_gateway" "igw" {
   depends_on = [aws_vpc.this]
   vpc_id     = aws_vpc.this.id
   tags = merge({
-    Name = "IGW-APP"
+    Name = "IGW-APP",
+    ENV  = local.current_workspace
   }, var.default_tags)
 }
 

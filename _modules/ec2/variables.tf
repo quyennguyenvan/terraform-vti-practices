@@ -27,10 +27,6 @@ variable "trusted_ip_ranges" {
 variable "associate_public_ip_address" {
 
 }
-
-variable "userdata" {
-
-}
 variable "ec2UserConnect" {
 
 }
